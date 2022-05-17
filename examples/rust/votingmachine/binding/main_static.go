@@ -5,7 +5,7 @@ package main
 /*
 #cgo CFLAGS: -std=c99
 #cgo LDFLAGS: -L. -l:libvotinglib.so
-#include "./hello.h"
+#include "./voting.h"
 */
 import "C"
 import "fmt"
