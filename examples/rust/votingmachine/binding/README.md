@@ -21,3 +21,5 @@
     - Note
       - Flag `RISC0_LOG=1` can be removed for ease of observation
       - The full log can be found in `log.txt`
+- Log example file
+  - Please check `log_example.txt`
