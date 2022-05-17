@@ -1,4 +1,4 @@
-load("@rules_rust//rust:defs.bzl", "rust_binary", "rust_library", "rust_test")
+load("@rules_rust//rust:defs.bzl", "rust_binary", "rust_library", "rust_static_library", "rust_shared_library", "rust_test")
 
 rust_binary(
     name = "votingmachine",
@@ -18,6 +18,35 @@ rust_library(
         "//risc0/zkvm/sdk/rust/serde:serde_host",
         "@crates_host//:env_logger",
         "@crates_host//:log",
+        "@crates_host//:libc",
+        "@crates_host//:serde",
+        "@crates_host//:serde_json",
+    ],
+)
+
+rust_shared_library(
+    name = "votinglib",
+    srcs = ["src/votinglib.rs"],
+    proc_macro_deps = ["@crates_host//:ctor"],
+    rustc_flags = ["-Coverflow-checks=on"],
+    data = [
+        "//examples/rust/votingmachine/core:freeze",
+        "//examples/rust/votingmachine/core:freeze.id",
+        "//examples/rust/votingmachine/core:init",
+        "//examples/rust/votingmachine/core:init.id",
+        "//examples/rust/votingmachine/core:submit",
+        "//examples/rust/votingmachine/core:submit.id",
+    ],    
+    deps = [
+        "//examples/rust/votingmachine/core:core_host",
+        "//risc0/zkvm/sdk/rust/core:core_host",
+        "//risc0/zkvm/sdk/rust/host",
+        "//risc0/zkvm/sdk/rust/serde:serde_host",
+        "@crates_host//:env_logger",
+        "@crates_host//:log",
+        "@crates_host//:libc",
+        "@crates_host//:serde",
+        "@crates_host//:serde_json",
     ],
 )
 

@@ -18,6 +18,7 @@ use risc0_zkvm_core::Digest;
 use serde::{Deserialize, Serialize};
 
 #[derive(Clone, Debug, Deserialize, Eq, PartialEq, Serialize)]
+#[repr(C)]
 pub struct VotingMachineState {
     pub polls_open: bool,
     pub voter_bitfield: u32,
@@ -47,6 +48,7 @@ pub struct InitializeVotingMachineCommit {
 }
 
 #[derive(Clone, Debug, Deserialize, Eq, PartialEq, Serialize)]
+#[repr(C)]
 pub struct Ballot {
     pub voter: u32,
     pub vote_yes: bool,

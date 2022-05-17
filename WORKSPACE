@@ -119,6 +119,7 @@ crates_repository(
         "env_logger": crate.spec(version = "0.8"),
         "log": crate.spec(version = "0.4"),
         "open": crate.spec(version = "2"),
+        "libc": crate.spec(version = "0.2.2"),
         "serde": crate.spec(
             features = ["derive"],
             version = "1.0",

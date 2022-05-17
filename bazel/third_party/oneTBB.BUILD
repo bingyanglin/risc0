@@ -46,7 +46,6 @@ cc_library(
         "include/oneapi/tbb/detail/*.h",
     ]),
     copts = ["-w"] + select({
-        ":linux_x86_64": ["-mwaitpkg"],
         "//conditions:default": [],
     }),
     defines = select({
