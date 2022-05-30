@@ -1,0 +1,25 @@
+load("@rules_rust//rust:defs.bzl", "rust_shared_library")
+
+rust_shared_library(
+    name = "counterlib",
+    srcs = ["src/counterlib.rs"],
+    proc_macro_deps = ["@crates_host//:ctor"],
+    rustc_flags = ["-Coverflow-checks=on"],
+    data = [
+        "//examples/rust/counter/core:init",
+        "//examples/rust/counter/core:init.id",
+        "//examples/rust/counter/core:submit",
+        "//examples/rust/counter/core:submit.id",
+    ],    
+    deps = [
+        "//examples/rust/counter/core:core_host",
+        "//risc0/zkvm/sdk/rust/core:core_host",
+        "//risc0/zkvm/sdk/rust/host",
+        "//risc0/zkvm/sdk/rust/serde:serde_host",
+        "@crates_host//:env_logger",
+        "@crates_host//:log",
+        "@crates_host//:libc",
+        "@crates_host//:serde",
+        "@crates_host//:serde_json",
+    ],
+)

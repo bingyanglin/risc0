@@ -5,6 +5,7 @@ members = [
   "examples/rust/battleship/web/client",
   # "examples/rust/battleship/web/server",
   "examples/rust/votingmachine",
+  "examples/rust/counter",
   "risc0/zkp/core",
   "risc0/zkp/verify",
   "risc0/zkvm/verify",
