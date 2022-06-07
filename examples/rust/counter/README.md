@@ -5,15 +5,13 @@
 - Copy the id files and the elf files to `risc0/examples/rust/counter/binding/circuit`
   - ELF files
     - Path: `risc0/bazel-out/k8-opt-ST-*/bin/examples/rust/counter/core`
-      - freeze
       - init
       - submit
   - ID files
     - Path: `risc0/bazel-bin/examples/rust/counter/core`
-      - freeze.id
       - init.id
       - submit.id
-- Copy the library to `risc0/examples/rust/counter/binding`
+- Copy the library to `risc0/examples/rust/counter/binding` or `/usr/lib/`
   - Path: `risc0/bazel-bin/examples/rust/counter/libcounterlib.so`
 - Run the go file
   - Go to `risc0/examples/rust/counter/binding`

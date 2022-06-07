@@ -30,22 +30,26 @@ impl CounterState {
 }
 
 #[derive(Debug, Deserialize, Eq, PartialEq, Serialize)]
+#[repr(C)]
 pub struct InitializeCounterCommit {
     pub state: Digest,
 }
 
 #[derive(Debug, Deserialize, Eq, PartialEq, Serialize)]
+#[repr(C)]
 pub struct SubmitCounterCommit {
     pub old_state: Digest,
     pub new_state: Digest,
 }
 
 #[derive(Clone, Debug, Deserialize, Eq, PartialEq, Serialize)]
+#[repr(C)]
 pub struct SubmitCounterParams {
     pub state: CounterState,
 }
 
 #[derive(Clone, Debug, Deserialize, Eq, PartialEq, Serialize)]
+#[repr(C)]
 pub struct SubmitCounterResult {
     pub state: CounterState,
 }
